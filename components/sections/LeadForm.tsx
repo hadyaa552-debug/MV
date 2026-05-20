@@ -8,7 +8,8 @@ import { Input } from "@/components/ui/Input";
 import { isValidEgyptPhone, normalizePhone } from "@/lib/validation";
 import type { ProjectContent } from "@/types/project";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdapyovz";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = "01674967-9a12-4ca9-90a1-124df08b2463";
 const ANY_PROJECT = "غير محدد — أرشدوني";
 
 interface LeadFormProps {
@@ -18,7 +19,7 @@ interface LeadFormProps {
   defaultProjectSlug?: string;
   /** Optional override for the submit button label. */
   submitLabel?: string;
-  /** Source label sent to Formspree to distinguish entry points (e.g. "section" / "popup"). */
+  /** Source label sent to Web3Forms to distinguish entry points (e.g. "section" / "popup"). */
   source?: string;
   /**
    * Optional success callback, called *before* the redirect to /thank-you.
@@ -31,7 +32,7 @@ interface LeadFormProps {
 
 /**
  * Pure 3-field lead capture form (phone / name / project chips).
- * POSTs to Formspree, then routes to /thank-you on success.
+ * POSTs to Web3Forms, then routes to /thank-you on success.
  * Used by both LeadFormSection and LeadPopup.
  */
 export function LeadForm({
@@ -72,16 +73,18 @@ export function LeadForm({
     const projectLabel = project ? project.projectName : ANY_PROJECT;
 
     const payload: Record<string, string> = {
+      access_key: WEB3FORMS_KEY,
       phone: normalizePhone(phone) || phone.trim(),
       project_slug: chosenProject || "any",
       project_name: projectLabel,
       source,
-      _subject: `استفسار ماونتن ڤيو — ${name.trim() || "عميل"} — ${projectLabel}`,
+      subject: `استفسار ماونتن ڤيو — ${name.trim() || "عميل"} — ${projectLabel}`,
+      from_name: name.trim() || "عميل ماونتن ڤيو",
     };
     if (name.trim()) payload.name = name.trim();
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,16 +93,12 @@ export function LeadForm({
         body: JSON.stringify(payload),
       });
       const data = (await res.json().catch(() => ({}))) as {
-        error?: string;
-        errors?: Record<string, string>;
+        success?: boolean;
+        message?: string;
       };
 
-      if (!res.ok) {
-        const msg =
-          (typeof data.error === "string" && data.error) ||
-          Object.values(data.errors ?? {})[0] ||
-          "تعذر إرسال النموذج. حاول مرة أخرى.";
-        setErrors({ form: msg });
+      if (!data.success) {
+        setErrors({ form: data.message || "تعذر إرسال النموذج. حاول مرة أخرى." });
         return;
       }
 

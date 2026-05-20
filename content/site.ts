@@ -16,8 +16,8 @@ export interface SiteFAQ {
 export const SITE = {
   developer: "ماونتن ڤيو",
   /** Default WhatsApp / phone (E.164 digits, no plus). */
-  whatsappNumber: "201118884994",
-  phoneNumber: "201223147238",
+  whatsappNumber: "201111136040",
+  phoneNumber: "201111136040",
 
   hero: {
     eyebrow: "ماونتن ڤيو · لاند مارك في القاهرة الجديدة، المستقبل سيتي، والعاصمة الإدارية",

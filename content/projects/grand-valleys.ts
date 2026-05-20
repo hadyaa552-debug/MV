@@ -87,8 +87,8 @@ export const content: ProjectContent = {
   seoDescription:
     "جراند فاليز ماونتن ڤيو في العاصمة الإدارية الجديدة: ٥٠٠ فدان، ١٥ وادي، فيلات تبدأ من ٢٧٫٨ مليون، مقدم ٥٪ وتقسيط ٨ سنوات.",
   ogImage: "/projects/grand-valleys/cover.png",
-  phoneNumber: "201223147238",
-  whatsappNumber: "201118884994",
+  phoneNumber: "201111136040",
+  whatsappNumber: "201111136040",
   whatsappInquiryMessage:
     "السلام عليكم، مهتم بفيلات ماونتن ڤيو جراند فاليز في العاصمة الإدارية وأرغب في تفاصيل الأسعار والخطط.",
   ctaText: "اتصل بنا",

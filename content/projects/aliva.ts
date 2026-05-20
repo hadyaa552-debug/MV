@@ -107,8 +107,8 @@ export const content: ProjectContent = {
   seoDescription:
     "اكتشف أليڤا من ماونتن ڤيو: شقق وآي ڤيلا وتاون هاوس في المستقبل سيتي، مقدم ١٠٠ ألف جنيه وتقسيط حتى ١٠ سنوات. احجز استشارتك الآن.",
   ogImage: "/projects/aliva/cover.png",
-  phoneNumber: "201223147238",
-  whatsappNumber: "201118884994",
+  phoneNumber: "201111136040",
+  whatsappNumber: "201111136040",
   whatsappInquiryMessage: "السلام عليكم، مهتم بمشروع أليڤا (ماونتن ڤيو) في المستقبل سيتي وأرغب في التفاصيل.",
   ctaText: "اتصل بنا",
   leadFormCtaText: "سجّل اهتمامك",

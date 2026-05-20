@@ -94,8 +94,8 @@ export const content: ProjectContent = {
   seoDescription:
     "Creek View — أحدث إطلاقات ماونتن ڤيو في القاهرة الجديدة، سور في سور مع هايد بارك. شقق من ٨ مليون، آي ڤيلا من ١٣ مليون، مقدم ٥٪ فقط.",
   ogImage: "/projects/hyde-park-launch/cover.png",
-  phoneNumber: "201223147238",
-  whatsappNumber: "201118884994",
+  phoneNumber: "201111136040",
+  whatsappNumber: "201111136040",
   whatsappInquiryMessage:
     "السلام عليكم، مهتم بـ Creek View ماونتن ڤيو جوار هايد بارك في القاهرة الجديدة وأرغب في التفاصيل قبل الإعلان الرسمي.",
   ctaText: "احجز في Creek View",
