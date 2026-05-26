@@ -79,6 +79,7 @@ export function LeadForm({
       project_name: projectLabel,
       source,
       subject: `استفسار ماونتن ڤيو — ${name.trim() || "عميل"} — ${projectLabel}`,
+      email: "ahmed.a.rahim23@gmail.com",
       from_name: name.trim() || "عميل ماونتن ڤيو",
     };
     if (name.trim()) payload.name = name.trim();
